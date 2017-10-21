@@ -1,0 +1,66 @@
+<form #insertarForm="ngForm">
+
+  <table align="center">
+    <tr>
+      <td>
+        <mat-form-field>
+          <input matInput required placeholder="ingrese id ciclista" [(ngModel)]="insertar.id_ciclista" name="id_ciclista" #id_ciclista="ngModel">
+          <mat-error>
+            ingrese un id valido
+          </mat-error>
+        </mat-form-field>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <mat-form-field>
+          <input required matInput placeholder="ingrese nombre ciclista" [(ngModel)]="insertar.nombre_ciclista" name="nombre_ciclista"
+            #nombre_ciclista="ngModel">
+          <mat-error>
+            ingrese un nombre valido
+          </mat-error>
+        </mat-form-field>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <mat-form-field>
+          <input matInput placeholder="ingrese pais ciclista" required [(ngModel)]="insertar.pais_ciclista" name="pais_ciclista" #pais_ciclista="ngModel">
+          <mat-error>
+            ingrese un nombre de pais valido
+          </mat-error>
+        </mat-form-field>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <mat-form-field>
+          <mat-select placeholder="ingrese equipo ciclista" required [(ngModel)]="insertar.equipo_ciclista" name="equipo_ciclista"
+            #equipo_ciclista="ngModel">
+            <mat-option *ngFor="let insertar of ciclistasDataServerService.listaciclistas" [value]="equipo_ciclista.value">
+              {{ insertar.equipo_ciclista }}
+            </mat-option>
+          </mat-select>
+          <mat-error>
+            ingrese un nombre de equipo valido
+          </mat-error>
+        </mat-form-field>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <br/>
+        <div class="button-row">
+          <button md-raised-button color="primary" (click)="nuevociclista()">
+                Nuevo Ciclista
+            </button>
+
+          <button md-raised-button color="primary" [disabled]="!insertarForm.valid" (click)="saveCiclista()">
+                Guardar
+              </button>
+        </div>
+      </td>
+    </tr>
+  </table>
+</form>

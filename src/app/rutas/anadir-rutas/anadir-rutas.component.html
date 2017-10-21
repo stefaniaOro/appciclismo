@@ -1,0 +1,86 @@
+<form #insertrutasForm="ngForm">
+  <table align="center">
+      <tr>
+          <td>
+            <mat-form-field>
+              <input  matInput placeholder="ingrese id de la Ruta" required [(ngModel)]="insertrutas.id_ruta" name="id_ruta"
+                #id_ruta="ngModel">
+              <mat-error>
+                ingrese un id valido
+              </mat-error>
+            </mat-form-field>
+          </td>
+        </tr>
+    <tr>
+      <td>
+        <mat-form-field>
+          <input matInput placeholder="ingrese nombre de la Ruta" required [(ngModel)]="insertrutas.nombre_ruta" name="nombre_ruta"
+            #nombre_ruta="ngModel">
+          <mat-error>
+            ingrese un nombre valido
+          </mat-error>
+        </mat-form-field>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <mat-form-field>
+          <input  matInput placeholder="ingrese el pais de la ruta" required [(ngModel)]="insertrutas.pais_ruta" name="pais_ruta"
+            #pais_ruta="ngModel">
+          <mat-error>
+            ingrese un pais valido
+          </mat-error>
+        </mat-form-field>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <mat-form-field>
+          <input matInput placeholder="ingrese la ciudad de la ruta" required  [(ngModel)]="insertrutas.ciudad_ruta" name="ciudad_ruta"
+            #ciudad_ruta="ngModel">
+          <mat-error>
+            ingrese una ciudad valida
+          </mat-error>
+        </mat-form-field>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <mat-form-field>
+          <input   matInput placeholder="ingrese la descripcion de la ruta" required [(ngModel)]="insertrutas.descripcion" name="descripcion"
+            #descripcion="ngModel">
+          <mat-error>
+            ingrese una descripcion valida
+          </mat-error>
+        </mat-form-field>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        
+          <mat-radio-group  required class= "insertrutas-radio-group" [(ngModel)]="insertrutas.kilometros" name="kilometros" #kilometros="ngModel">
+              <mat-radio-button required class="insertrutas-radio-button" *ngFor="let kilometrosOption of  kilometrosOptionsList" [value]="kilometrosOption.value">
+                  {{kilometrosOption.label}}
+                </mat-radio-button> 
+              </mat-radio-group>
+          <mat-error *ngIf="!kilometros.valid">
+            ingrese la cantidad de kilometros
+         </mat-error>         
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <br/>
+        <div class="button-row">
+          <button md-raised-button color="primary" (click)="nuevaruta()">
+              Nueva Ruta
+          </button>
+
+          <button md-raised-button color="primary" [disabled]="!insertrutasForm.valid" (click)="saveRuta()">
+              Guardar
+            </button>
+        </div>
+      </td>
+    </tr>
+  </table>
+</form>

@@ -1,0 +1,19 @@
+<table align="center" border="2">
+  <tr>
+    <td>Id Ruta</td>
+    <td>Nombre de Ruta</td>
+    <td>pais ruta</td>
+    <td>Nombre de la ciudad</td>
+    <td>Descripcion ruta</td>
+    <td>Kilometros</td>
+  </tr>
+  <tr *ngFor="let insertrutas of  rutasDataServerService.listarutas">
+    <td>{{insertrutas.id_ruta}}</td>
+    <td>{{insertrutas.nombre_ruta}}</td>
+    <td>{{insertrutas.pais_ruta}}</td>
+    <td>{{insertrutas.ciudad_ruta}}</td>
+    <td>{{insertrutas.Descripcion}}</td>
+    <td>{{insertrutas.kilometros}}</td>
+  </tr>
+</table>
+<br/>

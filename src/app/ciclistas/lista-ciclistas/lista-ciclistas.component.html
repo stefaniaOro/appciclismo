@@ -1,0 +1,15 @@
+<table align="center" border="2" >
+  <tr>
+    <td>Id ciclista</td>
+    <td>Nombre ciclista</td>
+    <td>Pais ciclista</td>
+    <td>Equipo ciclista</td>
+  </tr>
+  <tr *ngFor="let insertar of  ciclistasDataService.listaciclistas">
+      <td>{{insertar.id_ciclista}}</td>
+      <td>{{insertar.nombre_ciclista}}</td>
+      <td>{{insertar.pais_ciclista}}</td>
+      <td>{{insertar.equipo_ciclista}}</td>
+      
+  </tr>
+</table>
